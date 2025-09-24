@@ -1,12 +1,26 @@
-public class Human {
-    private String firstName;
-    private String lastName;
-    private int age ;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Human (String firstName , String lastName, int age){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
+class Human {
+    private String name;
+    private List<BankAccount> accounts;
 
+    public Human(String name) {
+        this.name = name;
+        this.accounts = new ArrayList<>();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void addAccount(BankAccount account) {
+        accounts.add(account);
+    }
+
+    public List<BankAccount> getAccounts() {
+        return accounts;
+    }
+
+  
 }
