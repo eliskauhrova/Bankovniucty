@@ -18,10 +18,9 @@ class Bank {
         accounts.add(account);
     }
 
-
     public double totalBalance() {
         double sum = 0;
-        for (BankAccount acc : accounts) {
+        for (int i = 0; i < accounts.size(); i++){
             sum += acc.getBalance();
         }
         return sum;
@@ -30,22 +29,24 @@ class Bank {
 
     public int clientCount() {
         List<Human> uniqueClients = new ArrayList<>();
-
-        for (BankAccount acc : accounts) {
+        for (int i = 0; i < accounts.size(); i++) {
+            BankAccount acc = accounts.get(i);
             Human owner = acc.getOwner();
             boolean exists = false;
 
-
-            for (Human h : uniqueClients) {
-                if (h == owner) {
+            for (int j = 0; j < uniqueClients.size(); j++) {
+                Human h = uniqueClients.get(j);
+                if (h == owner) { 
                     exists = true;
                     break;
                 }
             }
+
             if (!exists) {
                 uniqueClients.add(owner);
             }
         }
+
         return uniqueClients.size();
     }
 
